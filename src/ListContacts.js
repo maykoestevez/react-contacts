@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+import CreateContact from './CreateContact';
 
 class ListContacts extends Component {
 
@@ -24,6 +26,7 @@ class ListContacts extends Component {
                         value={query}
                         onChange={(event) => this.upadteQuery(event.target.value)}
                     />
+                    <Link to='/create' className='add-contact'></Link>
                 </div>
                 <ol className='contact-list'>
                     {showingContacts.map((contact) => (
@@ -43,21 +46,16 @@ class ListContacts extends Component {
                             >remove</button>
 
                         </li>
-
                     ))}
                 </ol>
-
             </div>
         )
-
-
     }
 }
 
 ListContacts.propTypes = {
     contacts: PropTypes.array.isRequired,
     onRemoveContact: PropTypes.func.isRequired
-
 }
 
 export default ListContacts;
